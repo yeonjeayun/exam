@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="compensate">
+    <insert id="insertCompensate">
+        insert into compensate(penalty_fee, fault_content, tc_id, cc_id, voc_id, driver_id)
+            value (#{penalty_fee}, #{fault_content}, #{tc_id}, #{cc_id}, #{voc_id}, #{driver_id})
+    </insert>
+
+    <select id="selectAll" resultType="com.example.teamfresh.model.Compensate">
+        select penalty_fee, fault_content, tc_id, cc_id, voc_id, compensate_id, driver_id
+        from compensate
+    </select>
+
+</mapper>

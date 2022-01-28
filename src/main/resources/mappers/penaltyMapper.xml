@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="penalty">
+    <insert id="insertPenalty">
+        insert into penalty(penalty_fee, fault_content, penalty_check, object_check, driver_id, voc_id)
+            value (#{penalty_fee}, #{fault_content}, #{penalty_check}, #{object_check}, #{driver_id}, #{voc_id})
+    </insert>
+
+    <select id="selectAll" resultType="com.example.teamfresh.model.Penalty">
+        select penalty_fee, fault_content, penalty_check, object_check, driver_id, voc_id, penalty_id, object_content
+        from penalty
+    </select>
+
+    <update id="updatePenaltyCheck">
+        update penalty
+        set penalty_check = #{penalty_check}
+        where penalty_id = #{penalty_id}
+    </update>
+
+    <update id="updatePenaltyObject">
+        update penalty
+        set object_check = #{object_check} , object_content = #{object_content}
+        where penalty_id = #{penalty_id}
+    </update>
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="voc">
+    <insert id="insertVoc">
+        insert into voc(voc_claim, voc_fault, penalty_fee, fault_content, cc_id, tc_id, driver_id)
+            value (#{voc_claim}, #{voc_fault}, #{penalty_fee}, #{fault_content}, #{cc_id}, #{tc_id}, #{driver_id})
+    </insert>
+
+    <select id="selectAll" resultType="com.example.teamfresh.model.Voc">
+        select voc_claim, voc_fault, penalty_fee, fault_content, cc_id, tc_id, driver_id, voc_id
+        from voc
+    </select>
+
+</mapper>
